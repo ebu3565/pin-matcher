@@ -53,14 +53,17 @@ if (displayTypePinFinal == displayGenPinFinal) {
   varifySuccess.style.display = 'block';
   varifyFailed.style.display = 'none';
 } else {
-  varifySuccess.style.display = 'none';
-  varifyFailed.style.display = 'block';
+  // function wrongPin(){
+    varifySuccess.style.display = 'none';
+    varifyFailed.style.display = 'block';
+  // };
 
-  // let wrongAttemts = 0;
-  // const tryMe = document.getElementById('tryAgain');
-
-  // if(wrongAttemts === 3){
-
+//change try
+  // const tryMe = document.getElementById('tryAgain').value;
+  // const parsTry = parseFloat(tryMe);
+  // if(wrongPin === 3){
+  //   let updateTryFinal = parsTry - 1;
+  //   return updateTryFinal;
   // }
 }
 
