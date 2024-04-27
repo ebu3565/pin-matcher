@@ -42,7 +42,7 @@
                                 <div onclick="clearDisplay()" class="button">C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn">Submit</button>
+                                <button id="varify-pin" type="submit" class="submit-btn">Submit</button>
                                 <p class="action-left">3 try left</p>
                             </div>
                     </div>
@@ -50,11 +50,18 @@
             </div>
         </div>
         <div class="notify-section">
-            <p id="notify">❌ Pin Didn't Match, Please try again</p>
-            <p id="notify">✅ Pin Matched... Secret door is opening for you</p>
+            <p id="varify-failed">❌ Pin Didn't Match, Please try again</p>
+            <p id="varify-success">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
     <script>
+
+
+//
+const varifySuccess1 = document.getElementById('varify-success');
+const varifyFailed1 = document.getElementById('varify-failed');
+varifySuccess1.style.display =  'none';
+varifyFailed1.style.display =  'none';
 
         //calc
         const display = document.getElementById('display');
@@ -90,7 +97,26 @@ document.getElementById('generateBtn').addEventListener('click',function(){
     const pinShow = document.getElementById('PinShow');
     pinShow.value = pin;
 }); 
-                
+//checking if it is ok
+document.getElementById('varify-pin').addEventListener('click',function(){
+const displayTypePin = document.getElementById('display');
+const displayTypePinFinal = displayTypePin.value;
+
+const displayGenPin = document.getElementById('PinShow');
+const displayGenPinFinal = displayGenPin.value;
+
+const varifySuccess = document.getElementById('varify-success');
+const varifyFailed = document.getElementById('varify-failed');
+
+if (displayTypePinFinal == displayGenPinFinal) {
+  varifySuccess.style.display = 'block';
+  varifyFailed.style.display = 'none';
+} else {
+  varifySuccess.style.display = 'none';
+  varifyFailed.style.display = 'block';
+}
+
+});
           
     </script>
 </body>
